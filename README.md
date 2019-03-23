@@ -14,4 +14,3 @@ cd DoHack
 ```
 ![sh](https://github.com/el3zahaby/DoHack/blob/master/intro0.png)
 ![sh](https://github.com/el3zahaby/DoHack/blob/master/intro.png)
-![sh](https://github.com/el3zahaby/DoHack/blob/master/intro2.png)

@@ -1,0 +1,3 @@
+plinter==0.10.0
+
+SocksiPy_branch==1.01

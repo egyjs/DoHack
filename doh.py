@@ -106,7 +106,15 @@ try:
     print ("2) To Start Attack using Redirect URL + with Auto Proxy")
     print ("3) To Start Attack Using title of Website")
     print ("4) To Start Attack Using title of Website + with auto Proxy")
-    choice = raw_input("[DoH#] >>> ")
+    print ("5) update [DoHack] tool")
+    choice = int(raw_input("[DoH#] >>> "))
+    if choice ==5:
+        banner()
+        cprint ('[DoH#] >>> Do Update','green')
+
+        os.system('git pull origin master')
+        os.system('bash -c "cd cupp/; git pull origin master"')
+        exit()
 
     if click.confirm('Do you want to genrate a smart password wordlist?', default=True):
         #os.system('python3 cupp/cupp.py -h')
@@ -124,20 +132,20 @@ try:
     else:
         cuppwordlist = raw_input('[DoH#] >>> Your wordlist file path/name :')
 
-    if choice == "1":
+    if choice == 1:
         doHack('redirect',cuppwordlist)
         print('[DoH#] >>> Sorry Password not found ')
-    if choice == "2":
+    if choice == 2:
         doHack('redirect',cuppwordlist,True)
         print('[DoH#] >>> Sorry Password not found ')
-    if choice =="3":
+    if choice == 3:
         doHack('title',cuppwordlist)
         print('[DoH#] >>> Sorry Password not found ')
-    if choice =="4":
+    if choice == 4:
         doHack('title',cuppwordlist,True)
         print('[DoH#] >>> Sorry Password not found ')
     else:
-        print("[DoH#] >>> sorry wrong choice Bye :) ")
+        print("[DoH#] >>> thanks Bye :) ")
 except KeyboardInterrupt as e:
     print("EXIT")
     # quit

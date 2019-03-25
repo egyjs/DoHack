@@ -27,4 +27,4 @@ sh install.sh
 - [x] add sh install
 - [ ] fix tor thing
 - [ ] develop a brute force algorithm `example: [a,b,aa,ab,ba etc]`
-- [ ] update the tool option
+- [x] update the tool option

@@ -10,8 +10,7 @@ pip install --upgrade -r requirements.txt
 
 ### install :
 ```
-git clone https://github.com/el3zahaby/DoHack.git
-cd DoHack
+git clone https://github.com/el3zahaby/DoHack.git && cd DoHack
 sh install.sh
 ```
 

@@ -26,5 +26,5 @@ sh install.sh
 - [x] genrate a smart wordlist
 - [x] add sh install
 - [ ] fix tor thing
-- [ ] develop a brute force algorithm `example: [a,b,aa,ab,ba etc]`
+- [ ] <s>develop a brute force algorithm `example: [a,b,aa,ab,ba etc]`</s>
 - [x] update the tool option

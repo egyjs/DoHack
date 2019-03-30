@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello, World!</title>
+
+        <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
+        <script type="text/javascript" src="/eel.js"></script>
+        <script type="text/javascript" src="/jq.js"></script>
+        <link rel="stylesheet" href="/milligram.min.css">
+        <style>
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #353535;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+</style>
+    </head>
+
+    <body>
+        <textarea id="banner" readonly style="outline: none;resize: none;width: 100%;min-height: 185px;max-width:100%;background: rgba(0, 0, 0, 0.78);color: #fff;font-weight: bold;" >       ===================================================================
+
+         ╔═╗   ╔═╗┬    ──┐ ┌─┐┬ ┬┌─┐┌┐ ┬ ┬
+         ╠═╣   ║╣ │ ───┌─┘ ├─┤├─┤├─┤├┴┐└┬┘  @  DoHack
+         ╩ ╩ o ╚═╝┴─┘  └── ┴ ┴┴ ┴┴ ┴└─┘ ┴
+
+         follow me in my instagram : •´¯`•.   🎀  [𝑒𝑔𝓎.𝒿𝓈]  🎀   .•`¯´•
+
+         Build By A.ELZAHABY github.com/el3zahaby
+
+      ===================================================================</textarea>
+<label class="container">Start Attack using Redirect URL
+<input type="radio" id="redirect" name="doh">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Start Attack using Redirect URL + with Auto Proxy
+<input type="radio" id="redirectProxy" name="doh" value="">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Start Attack Using title of Website
+<input type="radio" id="titleProxy" name="doh" value="">
+  <span class="checkmark"></span>
+</label>
+<label class="container">Start Attack Using title of Website + with auto Proxy
+<input type="radio" id="titleProxy" name="doh" value="">  <span class="checkmark"></span>
+</label>
+
+
+      <script type="text/javascript" src="/main.js"></script>
+      <script type="text/javascript">
+        init();
+
+
+      eel.say_hello_py("Javascript World!");  // Call a Python function
+
+      </script>
+      <style media="screen">
+        *{
+          max-width:100%;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+      </style>
+    </body>
+</html>

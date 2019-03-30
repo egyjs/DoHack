@@ -112,8 +112,10 @@ try:
         banner()
         cprint ('[DoH#] >>> Do Update','green')
 
-        os.system('git pull origin master')
-        os.system('bash -c "cd cupp/; git pull origin master"')
+        os.system('bash updategit.sh')
+	
+
+
         exit()
 
     if click.confirm('Do you want to genrate a smart password wordlist?', default=True):

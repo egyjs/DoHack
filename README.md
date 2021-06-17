@@ -10,7 +10,7 @@ pip install --upgrade -r requirements.txt
 
 ### install :
 ```
-git clone https://github.com/el3zahaby/DoHack.git && cd DoHack
+git clone https://github.com/egyjs/DoHack.git && cd DoHack
 sh install.sh
 ```
 
@@ -18,8 +18,8 @@ sh install.sh
 ```
 ./doh
 ```
-![sh](https://github.com/el3zahaby/DoHack/blob/master/intro0.png)
-![sh](https://github.com/el3zahaby/DoHack/blob/master/intro.png)
+![sh](https://github.com/egyjs/DoHack/blob/master/intro0.png)
+![sh](https://github.com/egyjs/DoHack/blob/master/intro.png)
 
 ### TODO
 
